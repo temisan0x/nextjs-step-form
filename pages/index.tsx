@@ -12,7 +12,11 @@ export const StepOne = () => {
           </div>
         <div className="w-full h-screen bg-gray-500">
           <div className="bg-red-500 m-10 h-5/6">
-            hello
+            <div className="flex p-10">
+              <p>Sign Up</p>
+              <p className="ml-5">Message</p>
+              <p className="ml-5">Checkbox</p>
+            </div>
           </div>
         </div>    
         </div>
