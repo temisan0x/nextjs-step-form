@@ -1,5 +1,3 @@
-
-
 type AuthProps = {
     children: React.ReactNode //allows multiple children, strings, numbers, fragments, 
 }
@@ -7,9 +5,7 @@ type AuthProps = {
 const Authentication = ({children}: AuthProps) => {
     return (
         <>
-            <div className="box-border ">
-                hello
-            </div>
+            {children}
         </>
     )
 }
