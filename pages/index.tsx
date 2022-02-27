@@ -15,41 +15,48 @@ export const StepOne = () => {
           </div>
         <div className="w-full h-screen bg-cyan-700">
           <div className="m-10 h-5/6">
-            <h1 className="text-center text-white font-semibold text-7xl">Sign UP</h1>
+            <span className="text-center font-semibold text-7xl before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-cyan-900 relative inline-block left-1/3">
+              <span className="text-white relative">
+                  Sign UP
+              </span>
+            </span>
 
-            <div className="flex mt-20 text-white justify-center items-center w-100">
+            <div className="flex mt-20 justify-center items-center w-100">
                 <div className="mr-10">
-                  <p>First Name</p>
-                  <input type="text" className='p-4 mt-3 rounded-xl inline-transparent focus:outline-transparent'/>
+                  <p className="text-white font-semibold">First Name</p>
+                <input type="text" className='w-60 h-14 p-2 mt-3 rounded-xl inline-transparent focus:outline-transparent
+                  border-solid border-gray-300 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
+                  '/>
                 </div>
                 <div className="">
-                  <p>Last Name</p>
-                  <input type="text" className='p-4 mt-3 rounded-xl'/>
+                  <p className="text-white font-semibold">Last Name</p>
+                  <input type="text" className='w-60 h-14 p-2 mt-3 rounded-xl'/>
                 </div>  
             </div>
 
-            <div className="flex mt-10 text-white justify-center items-center w-100">
+            <div className="flex mt-10 justify-center items-center w-100">
                 <div className="mr-10">
-                  <p>Date of Birth</p>
-                  <div className="datepicker relative form-floating mb-3 xl:w-96 flex items-center justify-center" data-mdb-toggle-button="false">
-                    <input type="text"
-                      className="form-control p-2 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                      placeholder="Select a date" />
-                    <button className="datepicker-toggle-button w-20" data-mdb-toggle="datepicker">
-                        {/* <FontAwesomeIcon icon={faCalendar} className="fa-2xs"/> */}
-                        
-                  </button>
-                  <DateSection/>
-                </div>
+                  <p className="text-white font-semibold">Date of Birth</p>   
+                  <div className="bg-white flex items-center justify-center mt-3 space-x-4 w-60 h-14 p-2 rounded-xl">              
+                        <DateSection/>
+                  </div>
                 </div>
                 <div className="">
-                  <p>Email Address</p>
-                  <input type="text" className='p-4 mt-3 rounded-xl'/>
+                  <p className="text-white font-semibold">Email Address</p>
+                  <input type="text" className='w-60 h-14 p-2 mt-3 rounded-xl'/>
                 </div>  
             </div>
+
+            <div className="flex flex-col content-center items-center mt-10">
+              <p className="text-white font-semibold">Address</p>
+              <input type="text" style={{width:'54%'}} className="w-4/6 p-5 mt-3 rounded-xl h-14"/>
+            </div>
+            <button>
+              Next Step
+            </button>
           </div>
         </div>    
-        </div>
+      </div>
     </form>
   )
 }
