@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "components/date/Date.js"  ],
+, "components/date/Date.js", "components/upload/FileUpload.jsx"  ],
   "exclude": [
     "node_modules"
   ]

@@ -18,3 +18,7 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.filepond--root{
+  font-size: 10px !important;
+}
