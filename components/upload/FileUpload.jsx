@@ -27,7 +27,7 @@ function FileUpload() {
         maxFiles={3}
         server="/api"
         name="files" 
-        labelIdle='Drag & Drop your files or <span class="filepond--label-action">Browse</span>'
+        labelIdle='Drag & Drop your CV or <span class="filepond--label-action">Browse</span>'
       />
   )
 }

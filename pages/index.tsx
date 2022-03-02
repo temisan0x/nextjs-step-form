@@ -74,18 +74,27 @@ export const StepOne = () => {
 
 export const StepTwo = () => {
   return (
-    <form>
-        <div>
-            <Image src={Img} alt="form-image" 
-            />
-        </div>
-        <div>
-          {/* Step */}
-      </div>
-      <form>
-        {/* content */}
-        {/* button */}
-      </form>
+    <form className="w-screen" >
+      <div className="flex">
+          <div className="w-1/2 mt-40 hidden md:block">
+              <Image src={Img} alt="form-image"/>
+          </div>
+        <div className="w-full h-screen bg-gray-900">
+          <div className="m-10 h-5/6">
+            <span className="text-center font-semibold text-7xl before:block before:absolute before:-inset-1 before:-skew-y-2 before:bg-white relative inline-block left-1/3">
+              <span className="text-gray-900 relative">
+                  Sign UP
+              </span>
+            </span>
+            
+            <div className="flex mt-20 justify-start items-center w-100">
+                <p className="text-white font-semibold text-4xl pl-11">Message</p>
+            </div>
+
+            
+          </div>
+        </div>     
+      </div>   
     </form>
   )
 }
@@ -118,8 +127,8 @@ export default function Home() {
           <link rel="icon" href="/favicon.ico" />
           {/* <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet"></link> */}
         </Head>
-          <StepOne/>
-          
+          {/* <StepOne/> */}
+          <StepTwo/>
         </div>
       </Authentication>
   )
