@@ -50,7 +50,7 @@ export const StepOne = () => {
             <div className='flex w-100 mt-10 justify-center'>
               <div className='w-60 flex flex-col mr-10 '>
                 <p className="text-white font-semibold">Upload CV</p>
-                <div>
+                <div className="mt-3 rounded-lg ">
                     <FileUpload/>
                 </div>
               </div>
@@ -59,25 +59,8 @@ export const StepOne = () => {
                   <input type="text" className='w-60 h-14 p-2 mt-3 rounded-xl'/>
               </div>
             </div>
-
-            {/* <div className="flex mt-10 justify-center items-center w-100"
-            style={{background:'red', width:'100%', display: 'flex', flexDirection: 'column'}}
-            >
-                <div>
-                  <p className="text-white font-semibold">Upload CV</p>   
-                </div>
-              <div style={{background:'red', width:'100%'}}>              
-                {/* <FileUpload/> */}
-              {/*}  <input type="text" />
-                </div>
-                <div>
-                  <p className="text-white font-semibold">Contact Address</p>
-                  <input type="text" className='w-60 h-14 p-2 mt-3 rounded-xl'/>
-                </div>  
-            </div> */}
-
             <div className="mt-14 text-center">
-              <button  className="bg-gray-900 px-8 py-4 text-white font-semibold text-3xl rounded-xl">
+              <button  className="bg-transparent text-blue-700 font-semibold py-2 px-4 border border-blue-500 hover:border-transparent text-3xl rounded-xl hover:border-red-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-100">
                 Next Step
               </button> 
             </div>
