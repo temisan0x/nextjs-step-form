@@ -60,9 +60,9 @@ export const StepOne = () => {
               </div>
             </div>
             <div className="mt-14 text-center">
-              <button  className="bg-transparent text-blue-700 font-semibold py-2 px-4 border border-blue-500 hover:border-transparent text-3xl rounded-xl hover:border-red-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-100">
-                Next Step
-              </button> 
+            <button  className="bg-transparent text-blue-700 font-semibold py-2 px-6 border border-blue-500 hover:border-transparent text-lg rounded-xl hover:border-red-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-100">
+                  Next Step
+                </button> 
             </div>
 
           </div>
@@ -86,12 +86,34 @@ export const StepTwo = () => {
                   Sign UP
               </span>
             </span>
-            
-            <div className="flex mt-20 justify-start items-center w-100">
-                <p className="text-white font-semibold text-4xl pl-11">Message</p>
+
+            <div className="pl-11 mt-16">
+                <span className="pt-10 text-gray-300">Step 2/3</span>
+              <p className="text-white font-semibold text-4xl  mt-1">Message</p><br />
+              <hr className="w-4/5"/>
             </div>
 
-            
+            <div className="mt-10 pl-11">
+              <p className="text-white font-semibold mb-3">message</p>
+              <textarea className="h-60 w-4/5 rounded-2xl p-3"></textarea>
+            </div>
+            <div className="flex justify-start mt-5 text-white">
+              <p className="pl-11 mr-7">
+                <input type="checkbox" className="default:ring-2 mr-3" />The number one choice
+              </p>
+              <p>
+                <input type="checkbox" className="default:ring-2 mr-3" />The number two choice
+              </p>
+            </div>
+
+            <div className="mt-14 flex justify-around items-center w-5/6">
+                <button  className="bg-transparent text-blue-700 font-semibold py-2 px-6 border border-blue-500 hover:border-transparent text-lg rounded-xl hover:border-red-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-100">
+                  Next Step
+                </button> 
+                <button  className="bg-transparent text-blue-700 font-semibold py-2 px-6 border border-blue-500 hover:border-transparent text-lg rounded-xl hover:border-red-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-100">
+                  Next Step
+                </button> 
+            </div>
           </div>
         </div>     
       </div>   
