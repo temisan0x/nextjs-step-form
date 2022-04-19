@@ -1,0 +1,103 @@
+.background {
+    display: flex;
+    width: 100%;
+}
+
+.signupForm {
+    background-color: rgb(17 24 39);
+    width: 60%;
+    height: 100vh;
+}
+
+.layout {
+    color: white;
+    width: 40%;
+}
+
+.header {
+    margin: 30px;
+    text-align: center;
+}
+
+
+.formLayout {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.formHeader {
+    text-align: center;
+    color: #fff;
+    font-size: 30px;
+    margin: 30px 0;
+}
+
+.formLayout>div {
+    margin-top: 20px;
+    width: 40%;
+}
+
+.formLayout>div>p {
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.formLayout>div>input {
+    width: 100%;
+    padding: 10px 10px;
+    border-radius: 5px;
+    outline: none;
+}
+
+.date {
+    text-align: center;
+    cursor: pointer;
+}
+
+.address {
+    width: 87% !important;
+}
+
+.formBtn {
+    text-align: center;
+}
+
+.formBtn > button {
+    background: #212122;
+    border: 1px solid rgba(245, 245, 245, 0.493);
+    padding: 10px 30px;
+    margin-top: 20px;
+    color: #fff;
+}
+
+.markerCrimson,
+.markerGrey {
+    height: 15px;
+    width: 15px;
+    background: #DB1E3D;
+    border-radius: 50%;
+}
+
+.markerGrey {
+    background: #000000;
+}
+
+
+.reference {
+    display: flex;
+    width: 70%;
+    justify-content: space-between;
+    position: relative;
+    margin: auto;
+}
+
+.reference:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -10px;
+    border-bottom: 1px solid rgb(227, 199, 199);
+    width: 105%;
+    border-radius: 25px;
+}

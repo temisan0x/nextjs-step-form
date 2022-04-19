@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+  margin: 0;
+}
+
 html,
 body {
   padding: 0;
@@ -22,3 +26,8 @@ a {
 .filepond--root{
   font-size: 10px !important;
 }
+
+.header-size {
+  font-size: 50px;
+}
+

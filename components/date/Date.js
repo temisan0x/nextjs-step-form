@@ -17,7 +17,7 @@ const DateSection = () => {
   }, [startDate])
 
   return (
-    <div className="w-24 overflow-hidden">
+    <div className="w-64 overflow-hidden">
       <DatePicker
           selected={startDate}
           onChange={(date) => setStartDate(date)}
