@@ -8,14 +8,6 @@ const DateSection = () => {
   const [startDate, setStartDate] = useState(new Date(2000, 1, 1));
   const [endDate, setEndDate] = useState(new Date().setMonth(startDate.getMonth() + 1))
 
-  useEffect(() => {
-    if(startDate > endDate) setStartDate(endDate)
-  }, [endDate])
-
-  useEffect(() => {
-    if(startDate > endDate) setEndDate(startDate)
-  }, [startDate])
-
   return (
     <div className="w-64 overflow-hidden">
       <DatePicker
