@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import React, { useState } from 'react';
 import Authentication from '../../layouts/Authentication';
-import classes from '../../styles/index.module.css'
+import classes from '../../../styles/index.module.css'
 import Reference from './Reference';
 import Switcher from './Switcher';
 

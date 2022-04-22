@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import StepOne from '../steps/StepOne';
 import StepTwo from '../steps/StepTwo';
 import { ISignUpState } from './SignupForm';
+import { useSelector } from 'react-redux';
+import { selectAllSteps } from '../../redux/slices/steps';
 
 export interface StepProps {
     onChange: (e: any) => void;
@@ -9,26 +11,18 @@ export interface StepProps {
 }
 
 
-const Switcher = ({ onChange }: StepProps) => {
-    const [currentStep, setCurrentStep] = useState(1)
+const Switcher = ({ onChange, state }: StepProps) => {
+    const {step} = useSelector(selectAllSteps)
 
-    const nextStep = () => {
-        setCurrentStep(currentStep + 1);
-    }
-
-    const prevStep = () => {
-        setCurrentStep(currentStep - 1)
-    }
-
-    const switchStep = (currentStep: any) => {
-        switch (currentStep) {
+    const switchStep = () => {
+        switch (step) {
+            case 0:
+                return (
+                    <StepOne onChange={onChange} state={ state}/>
+                )
             case 1:
                 return (
-                    <StepOne onChange={onChange} nextStep={nextStep}/>
-                )
-            case 2:
-                return (
-                    <StepTwo onChange={onChange} prevStep={prevStep}/>
+                    <StepTwo onChange={onChange} state={state}/>
                 )
             default:
                 return <></>
@@ -36,7 +30,7 @@ const Switcher = ({ onChange }: StepProps) => {
     }
 
     return (
-        <>{switchStep(currentStep)}</>
+        <>{switchStep()}</>
     )
 }
 

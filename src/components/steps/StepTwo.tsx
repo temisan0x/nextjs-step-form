@@ -1,12 +1,22 @@
 import React from 'react';
-import classes from '../../styles/index.module.css'
-import { IStepper } from './StepOne';
+import classes from '../../../styles/index.module.css';
+import { StepProps } from '../signupforms/Switcher';
+import { useDispatch } from 'react-redux';
+import { prevStep } from '../../redux/slices/steps';
 
 
+const StepTwo = ({ onChange, state }: StepProps) => {
 
-const StepTwo = ({ onChange, prevStep, nextStep }: IStepper) => {
+
+    const dispatch = useDispatch()
+
+    const handleFormData = (e: any) => {
+        e.preventDefault()
+        dispatch(prevStep())
+    }
+
     return (
-        <form>
+        <form onSubmit={handleFormData}>
             <div className={classes.formLayout}>
                 <div>
                     <p>First Name</p>
@@ -19,8 +29,8 @@ const StepTwo = ({ onChange, prevStep, nextStep }: IStepper) => {
                 </div>
             </div>
             <div className={classes.formBtn}>
-                <button onClick={prevStep}>next</button>
-                <button onClick={nextStep}>submit</button>
+                <button>prev</button>
+                <button type='submit'>submit</button>
             </div>
         </form>
     )

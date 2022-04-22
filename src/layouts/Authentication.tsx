@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from '../styles/index.module.css'
+import classes from '../../styles/index.module.css'
 import Image from 'next/image';
 import Logo from '../assets/images.jpg'
 

@@ -1,17 +1,21 @@
 import React from 'react';
-import classes from '../../styles/index.module.css'
-import DateSection from '../date/Date';
+import classes from '../../../styles/index.module.css'
+import { StepProps } from '../signupforms/Switcher';
+import { useDispatch } from 'react-redux';
+import { nextStep } from '../../redux/slices/steps';
 
-export type IStepper = {
-    nextStep?: () => void;
-    prevStep?: () => void;
-    onChange?: (e: any) => void;
-}
 
-const StepOne = ({ onChange, nextStep }: IStepper) => {
+const StepOne = ({ onChange, state }: StepProps) => {
+    
+    const dispatch = useDispatch();
+
+    const submitFormData = (e: any) => {
+        e.preventDefault()
+        dispatch(nextStep())
+    }
 
     return (
-        <form>
+        <form onSubmit={submitFormData}>
             <div className={classes.formLayout}>
                 <div>
                     <p>First Name</p>
@@ -45,7 +49,7 @@ const StepOne = ({ onChange, nextStep }: IStepper) => {
             </div>
 
             <div className={classes.formBtn}>
-                <button onClick={nextStep}>next</button>
+                <button>next</button>
             </div>
         </form>
     )
