@@ -15,8 +15,33 @@
 }
 
 .header {
-    margin: 30px;
     text-align: center;
+    justify-items: center;
+    transform: rotate(4deg);
+    background-color: #fff;
+    height: 75px;
+    margin: 50px auto;
+    width: 30%;
+}
+
+.header > h1 {
+    font-size:30px
+}
+
+.header:hover {
+    transform: rotate(0deg);
+    cursor: pointer;
+    background-color: inherit;
+    color: #fff;
+    transition: all 0.3s ease-in;
+    border: 1px solid rgba(255, 255, 255, 0.205);
+}
+
+.header>h1 {
+    position: absolute;
+    top: 50%;
+    transform: translate(50%, -50%);
+    width: 50%;
 }
 
 
@@ -63,7 +88,7 @@
     text-align: center;
 }
 
-.formBtn > button {
+.formBtn>button {
     background: #212122;
     border: 1px solid rgba(245, 245, 245, 0.493);
     padding: 10px 30px;

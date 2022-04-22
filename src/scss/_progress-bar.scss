@@ -45,9 +45,13 @@
 
     // active circle
     .progress-step-active {
-        background-color: $primary-color-background;
+        background-color: #800080;
+        border-width: 3px;
+        border-style: solid;
+        border-image: linear-gradient(to top, white, rgba(0, 0, 0, 0));
         color: $third-color;
-        border: none;
+        cursor: pointer;
+        // border: none;
     }
 
 }

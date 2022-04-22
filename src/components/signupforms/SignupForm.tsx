@@ -48,17 +48,13 @@ const SignupForm = () => {
             </Head>
             <div className={classes.signupForm}>
                 <div className={classes.header}>
-                    <span className=" before:block before:absolute before:-inset-1 before:-skew-y-2 before:bg-neutral-50  relative header-size">
-                        <span className="text-slate-900 relative">
-                            NewTabb
-                        </span>
-                    </span>
+                    <h1>NewTabb&#43;</h1>
                 </div>
                 {/* <Reference onChange={onChange} state={ state}/> */}
                 <div className="progressbar">
-                    <div className={ formStage === 1 ? "progress-step progress-step-active" : "progress-step" }></div>
-                    <div className={ formStage === 2 ? "progress-step progress-step-active" : "progress-step" }></div>
-                    <div className={ formStage === 3 ? "progress-step progress-step-active" : "progress-step" }></div>
+                    <div className={formStage === 1 ? "progress-step progress-step-active" : "progress-step"}></div>
+                    <div className={formStage === 2 ? "progress-step progress-step-active" : "progress-step"}></div>
+                    <div className={formStage === 3 ? "progress-step progress-step-active" : "progress-step"}></div>
                 </div>
                 <Switcher onChange={onChange} state={state} />
             </div>
