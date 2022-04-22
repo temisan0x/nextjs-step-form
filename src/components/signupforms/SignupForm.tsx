@@ -4,6 +4,8 @@ import Authentication from '../../layouts/Authentication';
 import classes from '../../../styles/index.module.css'
 import Reference from './Reference';
 import Switcher from './Switcher';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../redux/store';
 
 export interface ISignUpState {
     firstName: string;
@@ -17,6 +19,9 @@ export interface ISignUpState {
 }
 
 const SignupForm = () => {
+
+    const formStage = useSelector((state: RootState) => state.stepState.formStage)
+
     const [state, setState] = useState<ISignUpState>({
         firstName: '',
         lastName: '',
@@ -28,7 +33,7 @@ const SignupForm = () => {
         agreedToTerms: true,
     })
 
- const onChange = (e: any) => {
+    const onChange = (e: any) => {
         setState({
             ...state,
             [e.target.name]: e.target.value
@@ -49,8 +54,13 @@ const SignupForm = () => {
                         </span>
                     </span>
                 </div>
-                <Reference onChange={onChange} state={ state}/>
-                <Switcher onChange={onChange} state={ state}/>
+                {/* <Reference onChange={onChange} state={ state}/> */}
+                <div className="progressbar">
+                    <div className={ formStage === 1 ? "progress-step progress-step-active" : "progress-step" }></div>
+                    <div className={ formStage === 2 ? "progress-step progress-step-active" : "progress-step" }></div>
+                    <div className={ formStage === 3 ? "progress-step progress-step-active" : "progress-step" }></div>
+                </div>
+                <Switcher onChange={onChange} state={state} />
             </div>
 
         </Authentication>

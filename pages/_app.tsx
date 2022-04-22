@@ -1,5 +1,6 @@
 import '../styles/globals.css'
 import 'tailwindcss/tailwind.css'
+import '../src/scss/styles.scss'
 import { Provider } from 'react-redux';
 // import { persistStore } from "redux-persist";
 import store from '../src/redux/store';
