@@ -56,7 +56,10 @@ const SignupForm = () => {
                     <div className={formStage === 2 ? "progress-step progress-step-active" : "progress-step"}></div>
                     <div className={formStage === 3 ? "progress-step progress-step-active" : "progress-step"}></div>
                 </div>
-                <Switcher onChange={onChange} state={state} />
+                {/* <Switcher onChange={onChange} state={state} /> */}
+                {(formStage === 1) && <div>hello</div>}
+                {(formStage === 2) && <div>wteye</div>}
+                {(formStage === 3) && <div>kdkd</div>}
             </div>
 
         </Authentication>

@@ -7,11 +7,13 @@
     background-color: rgb(17 24 39);
     width: 60%;
     height: 100vh;
+    
 }
 
 .layout {
     color: white;
     width: 40%;
+    margin-top: 100px;
 }
 
 .header {
