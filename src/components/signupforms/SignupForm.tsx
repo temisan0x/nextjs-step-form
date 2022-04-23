@@ -6,39 +6,17 @@ import Reference from './Reference';
 import Switcher from './Switcher';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
+import StepOne from '../steps/StepOne';
 
-export interface ISignUpState {
-    firstName: string;
-    lastName: string;
-    DOB: string;
-    email: string;
-    telephone: string;
-    file: string;
-    message: string;
-    agreedToTerms: boolean
+export interface StepProps {
+    submitButtonText: string;
+    prevButton?: ()=>void;
+    nextButton?:()=> void;
 }
 
-const SignupForm = () => {
+const SignupForm = ({submitButtonText, prevButton, nextButton}:StepProps) => {
 
-    const formStage = useSelector((state: RootState) => state.stepState.formStage)
-
-    const [state, setState] = useState<ISignUpState>({
-        firstName: '',
-        lastName: '',
-        DOB: '',
-        email: '',
-        telephone: '',
-        file: '',
-        message: '',
-        agreedToTerms: true,
-    })
-
-    const onChange = (e: any) => {
-        setState({
-            ...state,
-            [e.target.name]: e.target.value
-        })
-    }
+    const formStage = useSelector((state: RootState) => state.stepState.FormStage)
 
     return (
         <Authentication>
@@ -57,7 +35,7 @@ const SignupForm = () => {
                     <div className={formStage === 3 ? "progress-step progress-step-active" : "progress-step"}></div>
                 </div>
                 {/* <Switcher onChange={onChange} state={state} /> */}
-                {(formStage === 1) && <div>hello</div>}
+                {(formStage === 1) && <StepOne submitButtonText={submitButtonText} prevButton={prevButton}/>}
                 {(formStage === 2) && <div>wteye</div>}
                 {(formStage === 3) && <div>kdkd</div>}
             </div>

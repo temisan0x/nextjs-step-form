@@ -2,15 +2,15 @@ import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from '../../store';
 
 export interface StepType {
-    formStage: number
-    formSignup: string
-    formPrivacy: string
+    FormStage: number
+    FormSignup: any
+    FormPrivacy: string
 }
 
 const initialState: StepType = {
-    formStage: 1,
-    formSignup: "",
-    formPrivacy: ""
+    FormStage: 1,
+    FormSignup: "",
+    FormPrivacy: ""
 }
 
 const stepSlice = createSlice({
@@ -18,17 +18,17 @@ const stepSlice = createSlice({
     initialState,
     reducers: {
         formStage: (state, action) => {
-            state.formStage = action.payload
+            state.FormStage = action.payload
         },
         formSignup: (state, action) => {
-            state.formSignup = action.payload
+            state.FormSignup = action.payload
         },
         formPrivacy: (state, action) => {
-            state.formPrivacy = action.payload
+            state.FormPrivacy = action.payload
         }
     }
 })
 
-export const { formStage, formSignup, formPrivacy } = stepSlice.actions;
+export const { formStage, ormSignup, FormPrivacy } = stepSlice.actions;
 export const selectAllSteps = (state: RootState) => state.stepState
 export default stepSlice.reducer
