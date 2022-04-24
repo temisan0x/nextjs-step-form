@@ -29,6 +29,6 @@ const stepSlice = createSlice({
     }
 })
 
-export const { formStage, ormSignup, FormPrivacy } = stepSlice.actions;
+export const { formStage, formSignup, formPrivacy } = stepSlice.actions;
 export const selectAllSteps = (state: RootState) => state.stepState
 export default stepSlice.reducer

@@ -90,7 +90,7 @@
     text-align: center;
 }
 
-.formBtn>button {
+.btn {
     background: #212122;
     border: 1px solid rgba(245, 245, 245, 0.493);
     padding: 10px 30px;
@@ -127,4 +127,13 @@
     border-bottom: 1px solid rgb(227, 199, 199);
     width: 105%;
     border-radius: 25px;
+}
+
+.errorHandler {
+    color: #fff;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    margin-top:3px;
 }
