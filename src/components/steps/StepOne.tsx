@@ -4,6 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 import { formSignup, formStage } from '../../redux/slices/steps';
 import { StepProps } from './StepTwo';
+import 'react-phone-number-input/style.css'
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
 
 
 
@@ -16,16 +19,14 @@ const StepOne = ({ submitButtonText, prevButton }: StepProps) => {
     const formFirstName = useSelector((state: RootState) => state.stepState.FormSignup.fname);
     const formLastName = useSelector((state: RootState) => state.stepState.FormSignup.lname);
     const formEmail = useSelector((state: RootState) => state.stepState.FormSignup.email);
-    const formDOB = useSelector((state: RootState) => state.stepState.FormSignup.dob);
-    const formPassword = useSelector((state: RootState) => state.stepState.FormSignup.password)
+    const formTelephone = useSelector((state: RootState) => state.stepState.FormSignup.telephone)
 
     //form initial state value
     const [formData, setFormData] = useState({
         fname: formFirstName || "",
         lname: formLastName || "",
         email: formEmail || "",
-        dob: formDOB || "",
-        password: formPassword || "",
+        telephone: formTelephone || "",
     })
 
     //form values onChange
@@ -35,7 +36,7 @@ const StepOne = ({ submitButtonText, prevButton }: StepProps) => {
             [e.target.name]: e.target.value
         })
     }
-    
+
     const [errors, setErrors] = useState({});
     const validate = (formData: any) => {
         let formErrors = {} //empty on first request;
@@ -52,10 +53,9 @@ const StepOne = ({ submitButtonText, prevButton }: StepProps) => {
         if (!formData.email || !emailRegex.test(formData.email)) {
             formErrors.email = "valid email is required"
         }
-        //password
-        const passwordRegex = new RegExp('(?=.*[a-z])+(?=.*[A-Z])+(?=.*[0-9])+(?=.{10,})')
-        if (!formData.password || !passwordRegex.test(formData.password) ) {
-            formErrors.password = "The minimum password length is 10 characters and must contain at least 1 lowercase letter, 1 uppercase letter and 1 number"
+        //country
+        if (!formData.telephone) {
+            formErrors.telephone = "your telephone is required";
         }
         return formErrors
     }
@@ -66,11 +66,10 @@ const StepOne = ({ submitButtonText, prevButton }: StepProps) => {
         e.preventDefault()
         setErrors(validate(formData)) //check for errors
         setIsSubmitted(true)//update submit status
-        // dispatch(nextStep())
     }
 
     useEffect(() => {
-        if (Object.keys(errors).length ===0 && isSubmitted) {
+        if (Object.keys(errors).length === 0 && isSubmitted) {
             dispatch(formStage(2))
         }
         dispatch(
@@ -78,11 +77,10 @@ const StepOne = ({ submitButtonText, prevButton }: StepProps) => {
                 fname: formData.fname,
                 lname: formData.lname,
                 email: formData.email,
-                dob: formData.dob,
-                password: formData.password,
+                telephone: formData.telephone,
             })
         )
-    }, [formData,isSubmitted, errors, dispatch])
+    }, [formData, isSubmitted, errors, dispatch])
 
     return (
         <form onSubmit={submitFormData}>
@@ -90,13 +88,13 @@ const StepOne = ({ submitButtonText, prevButton }: StepProps) => {
                 <div>
                     <p>First Name</p>
                     <input type="text" name="fname" value={formData.fname} onChange={handleChange} />
-                    {errors.fname && <span className={classes.errorHandler}>{ errors.fname}</span>}
+                    {errors.fname && <span className={classes.errorHandler}>{errors.fname}</span>}
                 </div>
 
                 <div>
                     <p>Last Name</p>
-                    <input type="text" name="lname" value={formData.lname} onChange={handleChange}/>
-                    {errors.lname && <span className={classes.errorHandler}>{ errors.lname}</span>}
+                    <input type="text" name="lname" value={formData.lname} onChange={handleChange} />
+                    {errors.lname && <span className={classes.errorHandler}>{errors.lname}</span>}
                 </div>
             </div>
 
@@ -104,13 +102,48 @@ const StepOne = ({ submitButtonText, prevButton }: StepProps) => {
                 <div>
                     <p>Email</p>
                     <input name="email" value={formData.email} onChange={handleChange} />
-                    {errors.email && <span className={classes.errorHandler}>{ errors.email}</span>}
+                    {errors.email && <span className={classes.errorHandler}>{errors.email}</span>}
                 </div>
 
                 <div>
-                    <p>Password</p>
-                    <input type="password" name="password" className={classes.password} value={formData.password} onChange={handleChange} />
-                    {errors.password && <span className={classes.errorHandler}>{ errors.password}</span>}
+                    <p>Phone Number</p>
+                    <PhoneInput
+                        value={formData.telephone}
+                        inputProps={{
+                            name: "telephone",
+                            required: true,
+                            autoFocus: true,
+                            onChange: handleChange
+                        }}
+                        masks={{ ng: '(...) ..-...-..' }}
+                        country='ng'
+                        onlyCountries={['ng', 'us']}
+                        regions={'africa'}
+                        countryCodeEditable={false}
+                        containerStyle={{
+                            width: "100%",
+                        }}
+                        inputStyle={{
+                            paddingLeft: 60,
+                            backgroundColor: "#ECECEC",
+                            color: "#444",
+                            width: "100%",
+                            border: "none"
+                        }}
+                        dropdownStyle={{
+                            backgroundColor: "#ECECEC",
+                        }}
+                        buttonStyle={{
+                            backgroundColor: "#ECECEC",
+                            borderLeft: 0,
+                            borderTop: 0,
+                            borderBottom: 0,
+                            paddingRight: 12,
+                            paddingLeft: 12,
+                            width: "53px",
+                        }}
+                    />
+                    {errors.telephone && <span className={classes.errorHandler}>{errors.telephone}</span>}
                 </div>
             </div>
 
@@ -121,7 +154,7 @@ const StepOne = ({ submitButtonText, prevButton }: StepProps) => {
                             className={classes.btn}
                             type="submit"
                             value={`Back`}
-                            onClick={()=> dispatch(formStage(currentStage - 1))}
+                            onClick={() => dispatch(formStage(currentStage - 1))}
                         />
                     </p>
                 }
