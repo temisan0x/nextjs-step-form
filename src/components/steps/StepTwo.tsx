@@ -61,9 +61,9 @@ const StepTwo = ({ prevButton, submitButtonText }: StepProps) => {
 
         //password
         const passwordRegex = new RegExp('(?=.*[a-z])+(?=.*[A-Z])+(?=.*[0-9])+(?=.{10,})')
-            if (!formData.password || !passwordRegex.test(formData.password) ) {
-                formErrors.password = "(Min. 10 characters, 1 number, case-sensitive)"
-            }
+        if (!formData.password || !passwordRegex.test(formData.password)) {
+            formErrors.password = "(Min. 10 characters, 1 number, case-sensitive)"
+        }
         return formErrors
     }
 
@@ -103,38 +103,40 @@ const StepTwo = ({ prevButton, submitButtonText }: StepProps) => {
             </div>
             <div>
                 <p>Gender</p>
-                <div style={{display: "flex", }}>
-                    <label>
+                <div>
+                    <label >
                         <input
+                            id="cbx"
                             type="checkbox"
                             name="gender"
                             value="male"
                             checked={formData.gender === "male"}
                             onChange={handleChanges} /> {" "} Male
-                    <input
-                        type="checkbox"
-                        name="gender"
-                        value="female"
-                        checked={formData.gender === "female"}
-                        onChange={handleChanges} />{" "} Female 
+                        <input
+                            id="cbx"
+                            type="checkbox"
+                            name="gender"
+                            value="female"
+                            checked={formData.gender === "female"}
+                            onChange={handleChanges} />{" "} Female
                     </label>
                     {errors.gender && <span className={classes.errorHandler}>{errors.gender}</span>}
                 </div>
             </div>
 
             <div className={classes.formLayout}>
-                    {/* <div>
+                {/* <div>
                         <p>Email</p>
                         <input name="email" value={formData.email} onChange={handleChange} />
                         {errors.email && <span className={classes.errorHandler}>{ errors.email}</span>}
                     </div> */}
 
-                    <div>
-                        <p>Password</p>
-                        <input type="password" name="password" className={classes.password} value={formData.password} onChange={handleChanges} />
-                        {errors.password && <span className={classes.errorHandler}>{ errors.password}</span>}
-                    </div>
+                <div>
+                    <p>Password</p>
+                    <input type="password" name="password" className={classes.password} value={formData.password} onChange={handleChanges} />
+                    {errors.password && <span className={classes.errorHandler}>{errors.password}</span>}
                 </div>
+            </div>
 
             <div className={classes.formBtn}>
                 {(prevButton) &&
