@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import classes from '../../../styles/index.module.css'
 import { useDispatch, useSelector } from 'react-redux';
-import { StepProps } from '../signupforms/SignupForm';
 import { RootState } from '../../redux/store';
 import { formSignup, formStage } from '../../redux/slices/steps';
+import { StepProps } from './StepTwo';
 
 
 
@@ -35,6 +35,7 @@ const StepOne = ({ submitButtonText, prevButton }: StepProps) => {
             [e.target.name]: e.target.value
         })
     }
+    
     const [errors, setErrors] = useState({});
     const validate = (formData: any) => {
         let formErrors = {} //empty on first request;

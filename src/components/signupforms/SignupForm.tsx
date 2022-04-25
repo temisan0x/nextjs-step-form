@@ -7,14 +7,11 @@ import Switcher from './Switcher';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 import StepOne from '../steps/StepOne';
+import StepTwo from '../steps/StepTwo';
 
-export interface StepProps {
-    submitButtonText: string;
-    prevButton: boolean;
-    nextButton?:()=> void;
-}
 
-const SignupForm = ({submitButtonText, prevButton, nextButton}:StepProps) => {
+
+const SignupForm = () => {
 
     const formStage = useSelector((state: RootState) => state.stepState.FormStage)
 
@@ -35,8 +32,8 @@ const SignupForm = ({submitButtonText, prevButton, nextButton}:StepProps) => {
                     <div className={formStage === 3 ? "progress-step progress-step-active" : "progress-step"}></div>
                 </div>
                 {/* <Switcher onChange={onChange} state={state} /> */}
-                {(formStage === 1) && <StepOne submitButtonText={submitButtonText} prevButton={false} />}
-                {(formStage === 2) && <div>wteye</div>}
+                {(formStage === 1) && <StepOne submitButtonText={'Next'} prevButton={false} />}
+                {(formStage === 2) && <StepTwo submitButtonText={'Next'} prevButton={true}/>}
                 {(formStage === 3) && <div>kdkd</div>}
             </div>
 
