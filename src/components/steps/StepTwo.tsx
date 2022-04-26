@@ -45,8 +45,9 @@ const StepTwo = ({ prevButton, submitButtonText }: StepProps) => {
         let formErrors = {}
 
         //dob
-        if (!formData.dob) {
-            formErrors.dob = "date of birth is required"
+        const dateRegex = new RegExp("/^[0-9]{2}[\/][0-9]{2}[\/][0-9]{4}$/g")
+        if (!formData.dob || !dateRegex.test(formData.dob)) {
+            formErrors.dob = "must not be below 17 years of age"
         }
 
         //gender
@@ -89,48 +90,48 @@ const StepTwo = ({ prevButton, submitButtonText }: StepProps) => {
 
     return (
         <form onSubmit={handleFormSubmit}>
-            <div className={classes.formLayout}>
-                {/* <div>
-                    <p>First Name</p>
-                    <label className="container">
-                        <input
-                            type="checkbox"
-                            onChange={handleChange}
-                        />
-                        <div className="checkmark"></div>
-                    </label>
-                </div> */}
-            </div>
-            <div>
-                <p>Gender</p>
-                <div>
-                    <label >
-                        <input
-                            id="cbx"
-                            type="checkbox"
-                            name="gender"
-                            value="male"
-                            checked={formData.gender === "male"}
-                            onChange={handleChanges} /> {" "} Male
-                        <input
-                            id="cbx"
-                            type="checkbox"
-                            name="gender"
-                            value="female"
-                            checked={formData.gender === "female"}
-                            onChange={handleChanges} />{" "} Female
+            <div className={classes.formSec}>
+                <div className={classes.formLayout2}>
+                    <p>Gender ?</p>
+                    <label>
+                        <div className={classes.gender}>
+                            <p> Male</p>
+                            <input
+                                id="cbx"
+                                type="checkbox"
+                                name="gender"
+                                value="male"
+                                checked={formData.gender === "male"}
+                                onChange={handleChanges} /> {" "}
+                        </div>
+                        <div className={classes.gender}>
+                            <p>Female</p>
+                            <input
+                                id="cbx"
+                                type="checkbox"
+                                name="gender"
+                                value="female"
+                                checked={formData.gender === "female"}
+                                onChange={handleChanges} />{" "}
+                        </div>
                     </label>
                     {errors.gender && <span className={classes.errorHandler}>{errors.gender}</span>}
+                </div>
+
+                <div className={classes.formLayout2}>
+                    <p>Date Of Birth</p>
+                    <input
+                        name="dob"
+                        type="date"
+                        value={formData.dob}
+                        onChange={handleChanges}
+                        className={classes.date}
+                    />
+                    {errors.dob && <span className={classes.errorHandler}>{errors.dob}</span>}
                 </div>
             </div>
 
             <div className={classes.formLayout}>
-                {/* <div>
-                        <p>Email</p>
-                        <input name="email" value={formData.email} onChange={handleChange} />
-                        {errors.email && <span className={classes.errorHandler}>{ errors.email}</span>}
-                    </div> */}
-
                 <div>
                     <p>Password</p>
                     <input type="password" name="password" className={classes.password} value={formData.password} onChange={handleChanges} />

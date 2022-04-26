@@ -120,15 +120,16 @@ const StepOne = ({ submitButtonText, prevButton }: StepProps) => {
                         onlyCountries={['ng', 'us']}
                         regions={'africa'}
                         countryCodeEditable={false}
-                        containerStyle={{
-                            width: "100%",
-                        }}
+                        // containerStyle={{
+                        //     width: "100%",
+                        // }}
                         inputStyle={{
                             paddingLeft: 60,
                             backgroundColor: "#ECECEC",
                             color: "#444",
                             width: "100%",
-                            border: "none"
+                            border: "none",
+                            height: '40px'
                         }}
                         dropdownStyle={{
                             backgroundColor: "#ECECEC",

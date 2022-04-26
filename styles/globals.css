@@ -31,6 +31,11 @@ a {
   font-size: 50px;
 }
 
+.form-control {
+  height: 40px;
+}
+
+
 /* From uiverse.io */
 .cbx {
   position: relative;
@@ -42,7 +47,7 @@ a {
   vertical-align: middle;
   transition: background 0.1s ease;
   cursor: pointer;
-  display: flex;
+  /* display: flex; */
 }
 
 .cbx:after {
