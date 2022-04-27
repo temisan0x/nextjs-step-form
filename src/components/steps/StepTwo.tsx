@@ -19,6 +19,7 @@ const StepTwo = ({ prevButton, nextButton, submitButtonText }: StepProps) => {
     const formCountry = useSelector((state: RootState) => state.stepState.FormSignup.country);
     const formGender = useSelector((state: RootState) => state.stepState.FormSignup.gender);
     const formPassword = useSelector((state: RootState) => state.stepState.FormSignup.password);
+    const formOccupation = useSelector((state: RootState) => state.stepState.FormSignup.occupation);
 
     const state = useSelector(state => state);
     const stateOutput = (`JSON Data Form-Privacy: ${JSON.stringify(state, null, 2)}`)
@@ -29,6 +30,7 @@ const StepTwo = ({ prevButton, nextButton, submitButtonText }: StepProps) => {
         gender: formGender || "",
         state: formState || "",
         country: formCountry || "",
+        occupation: formOccupation || "",
         password: formPassword || "",
     })
 
@@ -50,13 +52,18 @@ const StepTwo = ({ prevButton, nextButton, submitButtonText }: StepProps) => {
         }
 
         //state
-        if (formData.state) {
+        if (!formData.state) {
             formErrors.state = "your state is required";
         }
 
         //country
-        if (formData.country) {
-            formErrors.country = "your country is required";;
+        if (!formData.country) {
+            formErrors.country = "your country is required";
+        }
+
+        //occupation
+        if (!formData.occupation) {
+            formErrors.occupation = "your occupation is required";
         }
 
         //password
@@ -84,14 +91,91 @@ const StepTwo = ({ prevButton, nextButton, submitButtonText }: StepProps) => {
                 gender: formData.gender,
                 state: formData.state,
                 country: formData.country,
-                password: formData.password
+                password: formData.password,
+                occupation: formData.occupation
             }))
     }, [isSubmitted, errors, dispatch, formData])
 
     return (
         <form onSubmit={handleFormSubmit}>
-            
+            <div className={classes.genderS}>
+                <p>Gender</p>
+                <label htmlFor="gender" className="cbx">
+                    <div className={classes.gender}>
+                        <p>Female</p>
+                        <input
+                            id="cbx"
+                            type="checkbox"
+                            name="gender"
+                            value="male"
+                            checked={formData.gender === "male"}
+                            onChange={handleChanges} /> {" "}
+                    </div>
+                    <div className={classes.gender}>
+                        <p>Male</p>
+                        <input
+                            id="cbx"
+                            type="checkbox"
+                            name="gender"
+                            value="female"
+                            checked={formData.gender === "female"}
+                            onChange={handleChanges} />{" "}
+                    </div>
+                </label>
+                {errors.gender && <span className={classes.errorHandler}>{errors.gender}</span>}
+            </div>
+            <div className={classes.formLayout}>
+
+                <div>
+                    <p>Occupation</p>
+                    <input type="text" name="occupation" value={formData.occupation} onChange={handleChanges} />
+                    {errors.occupation && <span className={classes.errorHandler}>{errors.occupation}</span>}
+                </div>
+
+                <div>
+                    <p>State</p>
+                    <input type="text" name="state" value={formData.state} onChange={handleChanges} />
+                    {errors.state && <span className={classes.errorHandler}>{errors.state}</span>}
+                </div>
+
+
+            </div>
+            <div className={classes.formLayout}>
+
+                <div>
+                    <p>Country</p>
+                    <input type="text" name="country" value={formData.country} onChange={handleChanges} />
+                    {errors.country && <span className={classes.errorHandler}>{errors.country}</span>}
+                </div>
+
+                <div>
+                    <p>Password</p>
+                    <input type="password" name="password" value={formData.password} onChange={handleChanges} />
+                    {errors.password && <span className={classes.errorHandler}>{errors.password}</span>}
+                </div>
+
+            </div>
+            <div className={classes.formBtn}>
+                {(prevButton) &&
+                    <p>
+                        <input
+                            type="submit"
+                            value={`Previous`}
+                            className={classes.btn}
+                            onClick={() => dispatch(formStage(currentStage - 1))}
+                        />
+                    </p>}
+                <p>
+                    <input
+                        type="submit"
+                        value={submitButtonText || `Next`}
+                        className={classes.btn}
+                    />
+                </p>
+            </div>
+
         </form>
     )
-
 }
+
+export default StepTwo;

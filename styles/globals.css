@@ -35,9 +35,18 @@ a {
   height: 40px;
 }
 
-
 /* From uiverse.io */
+
 .cbx {
+  display: flex;
+  justify-content: space-around;
+}
+
+#cbx [type="checkbox"] {
+  opacity: none;
+}
+
+#cbx {
   position: relative;
   top: 1px;
   width: 27px;
@@ -47,17 +56,16 @@ a {
   vertical-align: middle;
   transition: background 0.1s ease;
   cursor: pointer;
-  /* display: flex; */
 }
 
-.cbx:after {
+#cbx:after {
   content: '';
   position: absolute;
   top: 2px;
   left: 8px;
   width: 7px;
   height: 14px;
-  opacity: 0;
+  /* opacity: 0; */
   transform: rotate(45deg) scale(0);
   border-right: 2px solid #fff;
   border-bottom: 2px solid #fff;

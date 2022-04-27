@@ -2,13 +2,10 @@ import Head from 'next/head';
 import React, { useState } from 'react';
 import Authentication from '../../layouts/Authentication';
 import classes from '../../../styles/index.module.css'
-import Reference from './Reference';
-import Switcher from './Switcher';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 import StepOne from '../steps/StepOne';
 import StepTwo from '../steps/StepTwo';
-
 
 
 const SignupForm = () => {
@@ -32,8 +29,8 @@ const SignupForm = () => {
                     <div className={formStage === 3 ? "progress-step progress-step-active" : "progress-step"}></div>
                 </div>
                 {/* <Switcher onChange={onChange} state={state} /> */}
-                {(formStage === 1) && <StepOne submitButtonText={'Next'} prevButton={false} />}
-                {(formStage === 2) && <StepTwo submitButtonText={'Next'} prevButton={true}/>}
+                {(formStage === 1) && <StepOne submitButtonText={'Next'} prevButton={false} nextButton={false} />}
+                {(formStage === 2) && <StepTwo submitButtonText={'Next'} prevButton={true} nextButton={true}/>}
                 {(formStage === 3) && <div>kdkd</div>}
             </div>
 
