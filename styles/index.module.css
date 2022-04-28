@@ -7,7 +7,8 @@
     background-color: rgb(17 24 39);
     width: 60%;
     height: 100vh;
-    overflow: scroll
+    overflow: scroll;
+    scroll-behavior: smooth;
 }
 
 .layout {
@@ -127,6 +128,32 @@
     font-size: 12px;
     width: 80%;
     line-height: 30px;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.formResult {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    background: #BFD6EE;
+    width: 70%;
+    margin: auto;
+    overflow: scroll;
+}
+
+.formResult > pre {
+    font-size: 11px;
+}
+
+.formResult > h4 {
+    margin: 20px;
+    font-size: 20px;
 }
 
 .formBtn {
