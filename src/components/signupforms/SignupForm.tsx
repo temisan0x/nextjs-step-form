@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 import StepOne from '../steps/StepOne';
 import StepTwo from '../steps/StepTwo';
+import StepThree from '../steps/StepThree';
 
 
 const SignupForm = () => {
@@ -27,11 +28,12 @@ const SignupForm = () => {
                     <div className={formStage === 1 ? "progress-step progress-step-active" : "progress-step"}></div>
                     <div className={formStage === 2 ? "progress-step progress-step-active" : "progress-step"}></div>
                     <div className={formStage === 3 ? "progress-step progress-step-active" : "progress-step"}></div>
+                    <div className={formStage === 4 ? "progress-step progress-step-active" : "progress-step"}></div>
                 </div>
                 {/* <Switcher onChange={onChange} state={state} /> */}
-                {(formStage === 1) && <StepOne submitButtonText={'Next'} prevButton={false} nextButton={false} />}
-                {(formStage === 2) && <StepTwo submitButtonText={'Next'} prevButton={true} nextButton={true}/>}
-                {(formStage === 3) && <div>kdkd</div>}
+                {(formStage === 1) && <StepOne submitButtonText={'Next'} prevButton={false} />}
+                {(formStage === 2) && <StepTwo submitButtonText={'Next'} prevButton={true} />}
+                {(formStage === 3) && <StepThree submitButtonText={'Next'} prevButton={true} />}
             </div>
 
         </Authentication>

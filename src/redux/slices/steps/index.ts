@@ -4,13 +4,13 @@ import { RootState } from '../../store';
 export interface StepType {
     FormStage: number
     FormSignup: any
-    FormPrivacy: string
+    FormPrivacy: boolean
 }
 
 const initialState: StepType = {
     FormStage: 1,
     FormSignup: "",
-    FormPrivacy: ""
+    FormPrivacy: false
 }
 
 const stepSlice = createSlice({

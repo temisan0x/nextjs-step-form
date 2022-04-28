@@ -6,11 +6,10 @@ import { formPrivacy, formSignup, formStage } from '../../redux/slices/steps';
 
 export interface StepProps {
     prevButton: boolean;
-    nextButton: boolean;
     submitButtonText: string;
 }
 
-const StepTwo = ({ prevButton, nextButton, submitButtonText }: StepProps) => {
+const StepTwo = ({ prevButton, submitButtonText }: StepProps) => {
     const dispatch = useDispatch();
 
     //grab state values from redux Steptype slice
@@ -22,12 +21,12 @@ const StepTwo = ({ prevButton, nextButton, submitButtonText }: StepProps) => {
     const formOccupation = useSelector((state: RootState) => state.stepState.FormSignup.occupation);
 
     const state = useSelector(state => state);
-    const stateOutput = (`JSON Data Form-Privacy: ${JSON.stringify(state, null, 2)}`)
+    const stateOutput = (`JSON Data Form-Data: ${JSON.stringify(state, null, 2)}`)
     console.log(stateOutput);
 
     //FormData state
     const [formData, setFormData] = useState({
-        gender: formGender || "",
+        gender: formGender || false,
         state: formState || "",
         country: formCountry || "",
         occupation: formOccupation || "",
@@ -94,7 +93,7 @@ const StepTwo = ({ prevButton, nextButton, submitButtonText }: StepProps) => {
                 password: formData.password,
                 occupation: formData.occupation
             }))
-    }, [isSubmitted, errors, dispatch, formData])
+    }, [isSubmitted, errors, dispatch, formData, stateOutput])
 
     return (
         <form onSubmit={handleFormSubmit}>
@@ -107,8 +106,8 @@ const StepTwo = ({ prevButton, nextButton, submitButtonText }: StepProps) => {
                             id="cbx"
                             type="checkbox"
                             name="gender"
-                            value="male"
-                            checked={formData.gender === "male"}
+                            value="female"
+                            checked={formData.gender === "female"}
                             onChange={handleChanges} /> {" "}
                     </div>
                     <div className={classes.gender}>
@@ -117,8 +116,8 @@ const StepTwo = ({ prevButton, nextButton, submitButtonText }: StepProps) => {
                             id="cbx"
                             type="checkbox"
                             name="gender"
-                            value="female"
-                            checked={formData.gender === "female"}
+                            value="male"
+                            checked={formData.gender === "male"}
                             onChange={handleChanges} />{" "}
                     </div>
                 </label>
