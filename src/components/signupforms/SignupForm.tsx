@@ -21,9 +21,6 @@ const SignupForm = () => {
                 <link rel="shortcut icon" href="logo.png" type="image/x-icon" />
             </Head>
             <div className={classes.signupForm}>
-                <div className={classes.header}>
-                    <h1>NewTabb&#43;</h1>
-                </div>
                 {/* <Reference onChange={onChange} state={ state}/> */}
                 <div className="progressbar">
                     <div className={formStage === 1 ? "progress-step progress-step-active" : "progress-step"}></div>
