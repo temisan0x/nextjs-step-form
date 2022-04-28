@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import classes from '../../../styles/index.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
-import { formPrivacy, formSignup, formStage } from '../../redux/slices/steps';
+import { formPrivacy, formSignup, formSignup2, formStage } from '../../redux/slices/steps';
 
 export interface StepProps {
-    prevButton: boolean;
-    submitButtonText: string;
+    prevButton?: boolean;
+    submitButtonText?: string;
+    successMessage?:string;
 }
 
 const StepTwo = ({ prevButton, submitButtonText }: StepProps) => {
@@ -14,11 +15,11 @@ const StepTwo = ({ prevButton, submitButtonText }: StepProps) => {
 
     //grab state values from redux Steptype slice
     const currentStage = useSelector((state: RootState) => state.stepState.FormStage);//prevBtn
-    const formState = useSelector((state: RootState) => state.stepState.FormSignup.state);
-    const formCountry = useSelector((state: RootState) => state.stepState.FormSignup.country);
-    const formGender = useSelector((state: RootState) => state.stepState.FormSignup.gender);
-    const formPassword = useSelector((state: RootState) => state.stepState.FormSignup.password);
-    const formOccupation = useSelector((state: RootState) => state.stepState.FormSignup.occupation);
+    const formState = useSelector((state: RootState) => state.stepState.FormSignup2.state);
+    const formCountry = useSelector((state: RootState) => state.stepState.FormSignup2.country);
+    const formGender = useSelector((state: RootState) => state.stepState.FormSignup2.gender);
+    const formPassword = useSelector((state: RootState) => state.stepState.FormSignup2.password);
+    const formOccupation = useSelector((state: RootState) => state.stepState.FormSignup2.occupation);
 
     const state = useSelector(state => state);
     const stateOutput = (`JSON Data Form-Data: ${JSON.stringify(state, null, 2)}`)
@@ -86,7 +87,7 @@ const StepTwo = ({ prevButton, submitButtonText }: StepProps) => {
         if (Object.keys(errors).length === 0 && isSubmitted) {
             dispatch(formStage(3))
         } dispatch(
-            formSignup({
+            formSignup2({
                 gender: formData.gender,
                 state: formData.state,
                 country: formData.country,

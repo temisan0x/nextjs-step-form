@@ -112,6 +112,22 @@
     font-size: 20px;
 }
 
+.cookies {
+    width: 40%;
+    padding: 10px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: #BFD6EE;
+}
+
+.cookies>p {
+    font-size: 12px;
+    width: 80%;
+    line-height: 30px;
+}
 
 .formBtn {
     display: flex;

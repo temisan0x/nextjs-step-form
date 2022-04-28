@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import classes from '../../../styles/index.module.css';
 import { formPrivacy, formStage } from '../../redux/slices/steps';
 import { RootState } from '../../redux/store';
+import { StepProps } from './StepTwo';
 
-const StepThree = ({ submitButtonText, prevButton }) => {
+const StepThree = ({ submitButtonText, prevButton }: StepProps) => {
 
     const dispatch = useDispatch();
 
@@ -39,7 +40,8 @@ const StepThree = ({ submitButtonText, prevButton }) => {
         if (isSubmitted) {
             //update slice
             dispatch(formStage(4))
-            dispatch(formPrivacy({
+            dispatch(
+                formPrivacy({
                 signup1: isChecked,
                 signup2: isChecked2
             }))
@@ -51,8 +53,8 @@ const StepThree = ({ submitButtonText, prevButton }) => {
         <form onSubmit={handleSubmit}>
             <div>
                 <label htmlFor="gender" className="cbx">
-                    <div className={classes.gender}>
-                        <p>Female</p>
+                    <div className={classes.cookies}>
+                        <p>Recieve updates about NewTabb+ via email</p>
                         <input
                             id="cbx"
                             type="checkbox"
@@ -60,8 +62,8 @@ const StepThree = ({ submitButtonText, prevButton }) => {
                             checked={isChecked}
                             onChange={handleChange1} /> 
                     </div>
-                    <div className={classes.gender}>
-                        <p>Male</p>
+                    <div className={classes.cookies}>
+                        <p>Recieve communication by email for other products created by the NewTabb+ team</p>
                         <input
                             id="cbx"
                             type="checkbox"

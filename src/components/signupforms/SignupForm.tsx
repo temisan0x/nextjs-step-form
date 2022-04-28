@@ -7,6 +7,7 @@ import { RootState } from '../../redux/store';
 import StepOne from '../steps/StepOne';
 import StepTwo from '../steps/StepTwo';
 import StepThree from '../steps/StepThree';
+import StepOutput from '../steps/StepOutput';
 
 
 const SignupForm = () => {
@@ -34,6 +35,7 @@ const SignupForm = () => {
                 {(formStage === 1) && <StepOne submitButtonText={'Next'} prevButton={false} />}
                 {(formStage === 2) && <StepTwo submitButtonText={'Next'} prevButton={true} />}
                 {(formStage === 3) && <StepThree submitButtonText={'Next'} prevButton={true} />}
+                {(formStage === 4) && <StepOutput />}
             </div>
 
         </Authentication>
