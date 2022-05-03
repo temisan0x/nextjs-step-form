@@ -35,8 +35,8 @@
 .header:hover {
     transform: rotate(0deg);
     cursor: pointer;
-    background-color: inherit;
-    color: #fff;
+    background-color: #C8C0CC;
+    color: #371A45;
     transition: all 0.3s ease-in;
     border: 1px solid rgba(255, 255, 255, 0.205);
 }
