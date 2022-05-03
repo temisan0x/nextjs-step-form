@@ -3,6 +3,7 @@
     width: 100%;
 }
 
+
 .signupForm {
     background-color: rgb(17 24 39);
     width: 60%;
@@ -23,13 +24,12 @@
     transform: rotate(4deg);
     background-color: #000000;
     height: 75px;
-    margin: 50px auto;
+    margin: 50px auto 0px;
     width: 50%;
 }
 
 .header>h1 {
     font-size: 30px
-    
 }
 
 .header:hover {
@@ -148,11 +148,11 @@
     overflow: scroll;
 }
 
-.formResult > pre {
+.formResult>pre {
     font-size: 11px;
 }
 
-.formResult > h4 {
+.formResult>h4 {
     margin: 20px;
     font-size: 20px;
 }

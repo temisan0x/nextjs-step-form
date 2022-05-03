@@ -3,7 +3,7 @@ import classes from "../../styles/index.module.css";
 import Image from "next/image";
 import Logo from "../assets/images.jpg";
 import Lottie from "react-lottie";
-import animation from "../assets/vibration.json";
+import animation from "../assets/astro.json";
 
 export class AnimationPage extends React.Component {
   render() {
@@ -15,7 +15,7 @@ export class AnimationPage extends React.Component {
     };
     return (
       <div>
-        <Lottie options={defaultProps} height={300} width={500} />
+        <Lottie options={defaultProps} height={300} width={300} />
       </div>
     );
   }

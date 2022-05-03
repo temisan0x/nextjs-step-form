@@ -50,7 +50,7 @@ const StepThree = ({ submitButtonText, prevButton }: StepProps) => {
 
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}  style={{marginTop: "50px"}}>
             <div>
                 <label htmlFor="gender" className="cbx">
                     <div className={classes.cookies}>
