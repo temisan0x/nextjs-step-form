@@ -12,6 +12,13 @@
     scroll-behavior: smooth;
 }
 
+.signup {
+    margin-top: 50px;
+    text-align: center;
+    color: #fff;
+    font-size: 4rem;
+}
+
 .layout {
     color: white;
     width: 40%;
@@ -71,6 +78,26 @@
     color: #fff;
     margin-bottom: 10px;
     font-size: 20px;
+}
+
+
+.password {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    background:#fff;
+    padding: 10px 10px;
+    border-radius: 5px;
+}
+
+.passwordInput {
+    width: 80%;
+    outline: none;
+}
+
+.icon {
+    width: 20px;
+    cursor: pointer;
 }
 
 .formLayout>div>input {
@@ -136,6 +163,7 @@
     margin-bottom: 30px;
 }
 
+
 .formResult {
     display: flex;
     flex-direction: column;
@@ -149,7 +177,7 @@
 }
 
 .formResult>pre {
-    font-size: 11px;
+    font-size: 16px;
 }
 
 .formResult>h4 {

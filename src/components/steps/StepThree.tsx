@@ -11,8 +11,8 @@ const StepThree = ({ submitButtonText, prevButton }: StepProps) => {
 
     //Redux store values for formUserPrivacy
     const currentStage = useSelector((state: RootState) => state.stepState.FormStage);
-    const stateSignup1 = useSelector((state: RootState) => state.stepState.FormPrivacy.signup1);
-    const stateSignup2 = useSelector((state: RootState) => state.stepState.FormPrivacy.signup2);
+    const stateSignup1 = useSelector((state: RootState) => state.stepState.FormPrivacy.products);
+    const stateSignup2 = useSelector((state: RootState) => state.stepState.FormPrivacy.emails);
 
     const state = useSelector((state: RootState) => state)
     const stateOutput = (`JSON Data Form-Privacy: ${JSON.stringify(state, null, 2)}`)
@@ -42,8 +42,8 @@ const StepThree = ({ submitButtonText, prevButton }: StepProps) => {
             dispatch(formStage(4))
             dispatch(
                 formPrivacy({
-                signup1: isChecked,
-                signup2: isChecked2
+                products: isChecked,
+                emails: isChecked2
             }))
         }
     }, [isSubmitted, dispatch, isChecked, isChecked2, stateOutput])
@@ -58,7 +58,7 @@ const StepThree = ({ submitButtonText, prevButton }: StepProps) => {
                         <input
                             id="cbx"
                             type="checkbox"
-                            name="signup1"
+                            name="products"
                             checked={isChecked}
                             onChange={handleChange1} /> 
                     </div>
@@ -67,7 +67,7 @@ const StepThree = ({ submitButtonText, prevButton }: StepProps) => {
                         <input
                             id="cbx"
                             type="checkbox"
-                            name="signup2"
+                            name="emails"
                             checked={isChecked2}
                             onChange={handleChange2} />
                     </div>

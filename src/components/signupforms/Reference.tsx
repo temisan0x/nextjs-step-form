@@ -30,7 +30,6 @@ const Reference = ({ onChange, state }: StepProps) => {
 
     return (
         <>
-            <h1 className={classes.formHeader}>SIgn Up</h1>
             <section className={classes.reference}>
                 {renderMarkers()}
             </section>

@@ -16,7 +16,7 @@ const StepOutput = ({ successMessage }: StepProps) => {
         <Image src={Check} alt="success" width={40} height={40} />
       </div>
       <div className={classes.formResult}>
-        <h4>{successMessage || "Thank you, please check your email!"}</h4>
+        <h4>{successMessage || "Thank you,  please check your email!"}</h4>
         <pre>{stateOutput}</pre>
       </div>
     </>

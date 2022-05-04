@@ -3,11 +3,13 @@ import classes from '../../../styles/index.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 import { formPrivacy, formSignup, formSignup2, formStage } from '../../redux/slices/steps';
+import Image from 'next/image';
+import Lock from '../../assets/lock.png'
 
 export interface StepProps {
     prevButton?: boolean;
     submitButtonText?: string;
-    successMessage?:string;
+    successMessage?: string;
 }
 
 const StepTwo = ({ prevButton, submitButtonText }: StepProps) => {
@@ -40,6 +42,9 @@ const StepTwo = ({ prevButton, submitButtonText }: StepProps) => {
             [e.target.name]: e.target.value
         })
     }
+
+    //password click
+
 
     //validate form 
     const [errors, setErrors] = useState({});
@@ -150,8 +155,13 @@ const StepTwo = ({ prevButton, submitButtonText }: StepProps) => {
 
                 <div>
                     <p>Password</p>
-                    <input type="password" name="password" value={formData.password} onChange={handleChanges} />
-                    {errors.password && <span className={classes.errorHandler}>{errors.password}</span>}
+                    <div className={classes.password}>
+                        <input className={classes.passwordInput} type="password" name="password" value={formData.password} onChange={handleChanges} />
+                        {errors.password && <span className={classes.errorHandler}>{errors.password}</span>}
+                        <div className={classes.icon}>
+                            <Image src={Lock} alt="lock" />
+                        </div>
+                    </div>
                 </div>
 
             </div>

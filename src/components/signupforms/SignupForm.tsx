@@ -22,6 +22,7 @@ const SignupForm = () => {
             </Head>
             <div className={classes.signupForm}>
                 {/* <Reference onChange={onChange} state={ state}/> */}
+                <h1 className={classes.signup}>Sign Up</h1>
                 <div className="progressbar">
                     <div className={formStage === 1 ? "progress-step progress-step-active" : "progress-step"}></div>
                     <div className={formStage === 2 ? "progress-step progress-step-active" : "progress-step"}></div>
