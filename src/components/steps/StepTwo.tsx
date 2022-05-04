@@ -5,6 +5,7 @@ import { RootState } from '../../redux/store';
 import { formPrivacy, formSignup, formSignup2, formStage } from '../../redux/slices/steps';
 import Image from 'next/image';
 import Lock from '../../assets/lock.png'
+import UnLock from '../../assets/unlocked.png'
 
 export interface StepProps {
     prevButton?: boolean;
@@ -22,7 +23,7 @@ const StepTwo = ({ prevButton, submitButtonText }: StepProps) => {
     const formGender = useSelector((state: RootState) => state.stepState.FormSignup2.gender);
     const formPassword = useSelector((state: RootState) => state.stepState.FormSignup2.password);
     const formOccupation = useSelector((state: RootState) => state.stepState.FormSignup2.occupation);
-
+    const [toggle, setToggle]= useState(false)
     const state = useSelector(state => state);
     const stateOutput = (`JSON Data Form-Data: ${JSON.stringify(state, null, 2)}`)
     console.log(stateOutput);
@@ -44,7 +45,11 @@ const StepTwo = ({ prevButton, submitButtonText }: StepProps) => {
     }
 
     //password click
-
+    function handleClick() {
+        setToggle(!toggle)
+        console.log('clicked');
+        
+    }
 
     //validate form 
     const [errors, setErrors] = useState({});
@@ -155,13 +160,21 @@ const StepTwo = ({ prevButton, submitButtonText }: StepProps) => {
 
                 <div>
                     <p>Password</p>
-                    <div className={classes.password}>
-                        <input className={classes.passwordInput} type="password" name="password" value={formData.password} onChange={handleChanges} />
-                        {errors.password && <span className={classes.errorHandler}>{errors.password}</span>}
-                        <div className={classes.icon}>
+                    <div className={classes.password} onClick={handleClick}>
+                        <input className={classes.passwordInput}
+                            type={toggle ? "password" : "text"}
+                            name="password"
+                            value={formData.password}
+                            onChange={handleChanges} />
+                        {
+                            toggle ? <div className={classes.icon}>
                             <Image src={Lock} alt="lock" />
+                        </div> : <div className={classes.icon}>
+                            <Image src={UnLock} alt="lock" />
                         </div>
+                        }
                     </div>
+                        {errors.password && <span className={classes.errorHandler}>{errors.password}</span>}
                 </div>
 
             </div>
