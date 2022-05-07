@@ -240,3 +240,18 @@
     width: 100%;
     margin-top: 6px;
 }
+
+@media screen and (max-width: 900px) {
+    .formLayout>div>p {
+        color: #fff;
+        margin-bottom: 10px;
+        font-size: 13px;
+    }
+
+    .formLayout>div>input {
+        width: 100%;
+        padding: 10px 10px;
+        border-radius: 5px;
+        outline: none;
+    }
+}
