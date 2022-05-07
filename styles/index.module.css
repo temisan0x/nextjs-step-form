@@ -82,10 +82,10 @@
 
 
 .password {
-    display:flex;
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    background:#fff;
+    background: #fff;
     padding: 10px 10px;
     border-radius: 5px;
 }
@@ -248,10 +248,28 @@
         font-size: 13px;
     }
 
-    .formLayout>div>input {
+    .signupForm {
+        background-color: rgb(17 24 39);
         width: 100%;
-        padding: 10px 10px;
-        border-radius: 5px;
-        outline: none;
+        height: 100vh;
+        overflow: scroll;
+        scroll-behavior: smooth;
+    }
+
+    .layout {
+        position: absolute;
+        right: 0;
+        overflow: hidden;
+    }
+
+    .formResult>pre {
+        font-size: 10px;
+        margin: auto;
+        font-weight: 800;
+    }
+
+    .formResult>h4 {
+        margin: 20px;
+        font-size: 16px;
     }
 }
