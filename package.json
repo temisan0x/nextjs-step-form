@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hookform/resolvers": "^2.8.8",
     "@reduxjs/toolkit": "^1.8.1",
     "@zeit/next-css": "^1.0.1",
     "axios": "^0.26.0",
@@ -25,13 +26,15 @@
     "react-dom": "17.0.2",
     "react-dropzone-uploader": "^2.11.0",
     "react-filepond": "^7.1.1",
+    "react-hook-form": "^7.30.0",
     "react-inputs-validation": "^4.9.2",
     "react-lazyload": "^3.2.0",
     "react-lottie": "^1.2.3",
     "react-phone-input-2": "^2.15.0",
     "react-phone-number-input": "^3.1.51",
     "react-redux": "^8.0.0",
-    "redux-persist": "^6.0.0"
+    "redux-persist": "^6.0.0",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@types/isomorphic-fetch": "^0.0.35",

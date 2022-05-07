@@ -8,6 +8,17 @@ import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 
+export type AuthProps = {
+    fname?: string;
+    lname?: string;
+    telephone?: string;
+    email?: string;
+    gender?: string;
+    state?: string;
+    occupation?: string;
+    country?: string;
+    password?: string;
+}
 
 
 const StepOne = ({ submitButtonText, prevButton }: StepProps) => {
@@ -38,8 +49,10 @@ const StepOne = ({ submitButtonText, prevButton }: StepProps) => {
     }
 
     const [errors, setErrors] = useState({});
-    const validate = (formData: any) => {
-        let formErrors = {} //empty on first request;
+    
+    const validate = (formData:any) => {
+
+        let formErrors: AuthProps = {} // set form errors to none at start
         //fname
         if (!formData.fname) {
             formErrors.fname = "first name required"

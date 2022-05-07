@@ -6,11 +6,13 @@ import { formPrivacy, formSignup, formSignup2, formStage } from '../../redux/sli
 import Image from 'next/image';
 import Lock from '../../assets/lock.png'
 import UnLock from '../../assets/unlocked.png'
+import { AuthProps } from './StepOne';
 
 export interface StepProps {
     prevButton?: boolean;
     submitButtonText?: string;
     successMessage?: string;
+    onChange?: (e: any) => void;
 }
 
 const StepTwo = ({ prevButton, submitButtonText }: StepProps) => {
@@ -54,7 +56,7 @@ const StepTwo = ({ prevButton, submitButtonText }: StepProps) => {
     //validate form 
     const [errors, setErrors] = useState({});
     const validate = (formData: any) => {
-        let formErrors = {}
+        let formErrors: AuthProps= {}
 
         //gender
         if (!formData.gender) {
