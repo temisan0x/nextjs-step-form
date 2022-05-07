@@ -272,4 +272,17 @@
         margin: 20px;
         font-size: 16px;
     }
+
+    .formLayout {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .formLayout>div {
+        margin-top: 10px;
+        width: 70%;
+    }
 }
