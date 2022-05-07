@@ -247,10 +247,8 @@
     background-color: #000000;
     color: #fff;
     text-align: center;
-    position: fixed;
-    bottom: 0;
-    right: 0;
     font-family: sans-serif;
+    padding: 10px;
 }
 
 @media screen and (max-width: 900px) {
