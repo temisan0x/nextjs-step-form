@@ -37,6 +37,7 @@ const Authentication = ({ children }: AuthProps) => {
         </div>
         {children}
       </div>
+      <p className={classes.footer}>Created with ❤️  by Temycodes</p>
     </>
   );
 };

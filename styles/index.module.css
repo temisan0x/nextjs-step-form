@@ -241,6 +241,15 @@
     margin-top: 6px;
 }
 
+.footer {
+    background-color: #000000;
+    color: #fff;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
 @media screen and (max-width: 900px) {
     .formLayout>div>p {
         color: #fff;

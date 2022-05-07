@@ -34,7 +34,7 @@ const StepOne = ({ submitButtonText, prevButton }) => {
     }
 
     const [errors, setErrors] = useState({});
-    
+
     const validate = (formData) => {
 
 
@@ -114,14 +114,16 @@ const StepOne = ({ submitButtonText, prevButton }) => {
                             autoFocus: true,
                             onChange: handleChange
                         }}
-                        masks={{ ng: '(...) ..-...-..' }}
+                        // masks={{ ng: '(...) ..-...-..' }}
                         country='ng'
-                        onlyCountries={['ng', 'us']}
-                        regions={'africa'}
-                        countryCodeEditable={false}
+                        // onlyCountries={['ng', 'us']}
+                        // regions={'africa'}
+                        // countryCodeEditable={false}
                         // containerStyle={{
                         //     width: "100%",
                         // }}
+                        onlyCountries={['fr', 'at','ng','us','gh']}
+                        preserveOrder={['onlyCountries', 'preferredCountries']}
                         inputStyle={{
                             paddingLeft: 60,
                             backgroundColor: "#ECECEC",
