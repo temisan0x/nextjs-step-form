@@ -2,36 +2,34 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import classes from '../../../styles/index.module.css';
 import { formPrivacy, formStage } from '../../redux/slices/steps';
-import { RootState } from '../../redux/store';
-import { StepProps } from './StepTwo';
 
-const StepThree = ({ submitButtonText, prevButton }: StepProps) => {
+const StepThree = ({ submitButtonText, prevButton }) => {
 
     const dispatch = useDispatch();
 
     //Redux store values for formUserPrivacy
-    const currentStage = useSelector((state: RootState) => state.stepState.FormStage);
-    const stateSignup1 = useSelector((state: RootState) => state.stepState.FormPrivacy.products);
-    const stateSignup2 = useSelector((state: RootState) => state.stepState.FormPrivacy.emails);
+    const currentStage = useSelector((state) => state.stepState.FormStage);
+    const stateSignup1 = useSelector((state) => state.stepState.FormPrivacy.products);
+    const stateSignup2 = useSelector((state) => state.stepState.FormPrivacy.emails);
 
-    const state = useSelector((state: RootState) => state)
+    const state = useSelector((state) => state)
     const stateOutput = (`JSON Data Form-Privacy: ${JSON.stringify(state, null, 2)}`)
 
     //toggle checkboxes 
     const [isChecked, setIsChecked] = useState(stateSignup1 || false);
     const [isChecked2, setIsChecked2] = useState(stateSignup2 || false);
 
-    function handleChange1(e: any) {
+    function handleChange1(e) {
         setIsChecked(!isChecked)
     }
 
-    function handleChange2(e: any) {
+    function handleChange2(e) {
         setIsChecked2(!isChecked2)
     }
 
     //on submit
     const [isSubmitted, setIsSubmitted] = useState(false)//state for form status
-    function handleSubmit(e: any) {
+    function handleSubmit(e) {
         e.preventDefault();
         setIsSubmitted(true);
     }

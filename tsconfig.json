@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/components/date/Date.js", "src/components/upload/FileUpload.jsx", "src/components/signupforms/SignupForm.tsx"  ],
+, "src/components/date/Date.js", "src/components/upload/FileUpload.jsx", "src/components/signupforms/SignupForm.tsx", "src/components/steps/StepOne.jsx", "src/components/steps/StepTwo.jsx", "src/components/steps/StepThree.jsx"  ],
   "exclude": [
     "node_modules"
   ]

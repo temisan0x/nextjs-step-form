@@ -1,31 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import classes from '../../../styles/index.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../redux/store';
-import { formPrivacy, formSignup, formSignup2, formStage } from '../../redux/slices/steps';
+import {formSignup2, formStage } from '../../redux/slices/steps';
 import Image from 'next/image';
 import Lock from '../../assets/lock.png'
 import UnLock from '../../assets/unlocked.png'
-import { AuthProps } from './StepOne';
 
-export interface StepProps {
-    prevButton?: boolean;
-    submitButtonText?: string;
-    successMessage?: string;
-    onChange?: (e: any) => void;
-}
-
-const StepTwo = ({ prevButton, submitButtonText }: StepProps) => {
+const StepTwo = ({ prevButton, submitButtonText }) => {
     const dispatch = useDispatch();
 
     //grab state values from redux Steptype slice
-    const currentStage = useSelector((state: RootState) => state.stepState.FormStage);//prevBtn
-    const formState = useSelector((state: RootState) => state.stepState.FormSignup2.state);
-    const formCountry = useSelector((state: RootState) => state.stepState.FormSignup2.country);
-    const formGender = useSelector((state: RootState) => state.stepState.FormSignup2.gender);
-    const formPassword = useSelector((state: RootState) => state.stepState.FormSignup2.password);
-    const formOccupation = useSelector((state: RootState) => state.stepState.FormSignup2.occupation);
-    const [toggle, setToggle]= useState(false)
+    const currentStage = useSelector((state) => state.stepState.FormStage);//prevBtn
+    const formState = useSelector((state) => state.stepState.FormSignup2.state);
+    const formCountry = useSelector((state) => state.stepState.FormSignup2.country);
+    const formGender = useSelector((state) => state.stepState.FormSignup2.gender);
+    const formPassword = useSelector((state) => state.stepState.FormSignup2.password);
+    const formOccupation = useSelector((state) => state.stepState.FormSignup2.occupation);
+
+    const [toggle, setToggle] = useState(false)
     const state = useSelector(state => state);
     const stateOutput = (`JSON Data Form-Data: ${JSON.stringify(state, null, 2)}`)
     console.log(stateOutput);
@@ -39,7 +31,7 @@ const StepTwo = ({ prevButton, submitButtonText }: StepProps) => {
         password: formPassword || "",
     })
 
-    function handleChanges(e: any) {
+    function handleChanges(e) {
         setFormData({
             ...formData,
             [e.target.name]: e.target.value
@@ -55,8 +47,8 @@ const StepTwo = ({ prevButton, submitButtonText }: StepProps) => {
 
     //validate form 
     const [errors, setErrors] = useState({});
-    const validate = (formData: any) => {
-        let formErrors: AuthProps= {}
+    const validate = (formData) => {
+        let formErrors= {}
 
         //gender
         if (!formData.gender) {
@@ -89,7 +81,7 @@ const StepTwo = ({ prevButton, submitButtonText }: StepProps) => {
 
     const [isSubmitted, setIsSubmitted] = useState(false);
 
-    function handleFormSubmit(e: any): void {
+    function handleFormSubmit(e) {
         e.preventDefault();
         setIsSubmitted(true);
         setErrors(validate(formData))

@@ -1,36 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import classes from '../../../styles/index.module.css'
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../redux/store';
 import { formSignup, formStage } from '../../redux/slices/steps';
-import { StepProps } from './StepTwo';
 import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 
-export type AuthProps = {
-    fname?: string;
-    lname?: string;
-    telephone?: string;
-    email?: string;
-    gender?: string;
-    state?: string;
-    occupation?: string;
-    country?: string;
-    password?: string;
-}
-
-
-const StepOne = ({ submitButtonText, prevButton }: StepProps) => {
+const StepOne = ({ submitButtonText, prevButton }) => {
 
     const dispatch = useDispatch();
 
     //grab state values from redux Steptype slice
-    const currentStage = useSelector((state: RootState) => state.stepState.FormStage); //count
-    const formFirstName = useSelector((state: RootState) => state.stepState.FormSignup.fname);
-    const formLastName = useSelector((state: RootState) => state.stepState.FormSignup.lname);
-    const formEmail = useSelector((state: RootState) => state.stepState.FormSignup.email);
-    const formTelephone = useSelector((state: RootState) => state.stepState.FormSignup.telephone)
+    const currentStage = useSelector((state) => state.stepState.FormStage); //count
+    const formFirstName = useSelector((state) => state.stepState.FormSignup.fname);
+    const formLastName = useSelector((state) => state.stepState.FormSignup.lname);
+    const formEmail = useSelector((state) => state.stepState.FormSignup.email);
+    const formTelephone = useSelector((state) => state.stepState.FormSignup.telephone)
 
     //form initial state value
     const [formData, setFormData] = useState({
@@ -41,7 +26,7 @@ const StepOne = ({ submitButtonText, prevButton }: StepProps) => {
     })
 
     //form values onChange
-    const handleChange = (e: any) => {
+    const handleChange = (e) => {
         setFormData({
             ...formData,
             [e.target.name]: e.target.value
@@ -50,10 +35,10 @@ const StepOne = ({ submitButtonText, prevButton }: StepProps) => {
 
     const [errors, setErrors] = useState({});
     
-    const validate = (formData:any) => {
+    const validate = (formData) => {
 
-        
-        let formErrors: AuthProps = {} // set form errors to none at start
+
+        let formErrors = {} // set form errors to none at start
         //fname
         if (!formData.fname) {
             formErrors.fname = "first name required"
@@ -76,7 +61,7 @@ const StepOne = ({ submitButtonText, prevButton }: StepProps) => {
 
     const [isSubmitted, setIsSubmitted] = useState(false)
 
-    const submitFormData = (e: any) => {
+    const submitFormData = (e) => {
         e.preventDefault()
         setErrors(validate(formData)) //check for errors
         setIsSubmitted(true)//update submit status
