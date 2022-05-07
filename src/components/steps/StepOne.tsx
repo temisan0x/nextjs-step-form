@@ -52,6 +52,7 @@ const StepOne = ({ submitButtonText, prevButton }: StepProps) => {
     
     const validate = (formData:any) => {
 
+        
         let formErrors: AuthProps = {} // set form errors to none at start
         //fname
         if (!formData.fname) {
