@@ -250,13 +250,14 @@
     position: fixed;
     bottom: 0;
     right: 0;
+    font-family: sans-serif;
 }
 
 @media screen and (max-width: 900px) {
     .formLayout>div>p {
         color: #fff;
         margin-bottom: 10px;
-        font-size: 13px;
+        font-size: 17px;
     }
 
     .signupForm {
@@ -295,5 +296,9 @@
     .formLayout>div {
         margin-top: 10px;
         width: 70%;
+    }
+
+    .errorHandler {
+        font-size: 14px;
     }
 }

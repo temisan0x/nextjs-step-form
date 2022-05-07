@@ -15,8 +15,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family:sans-serif;
       background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAL0lEQVQYV2NkZGD4/5+BAUjhByAFQHXEKGQEKvxPjEKiTaSiQpAfwG4j0jMDphAAMVQNCuDf3dcAAAAASUVORK5CYII=) repeat;
 }
 
