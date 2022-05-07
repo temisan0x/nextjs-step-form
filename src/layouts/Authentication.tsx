@@ -30,9 +30,9 @@ const Authentication = ({ children }: AuthProps) => {
     <>
       <div className={classes.background}>
         <div className={classes.layout}>
-          <div className={classes.header}>
+          {/* <div className={classes.header}>
             <h1>NewTabb&#43;</h1>
-          </div>
+          </div> */}
           <AnimationPage />
         </div>
         {children}
