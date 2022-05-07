@@ -23,6 +23,8 @@
     width: 40%;
     display: grid;
     place-items: center;
+    z-index: 1111;
+    position: relative;
 }
 
 .header {
