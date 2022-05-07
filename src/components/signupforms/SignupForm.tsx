@@ -70,7 +70,7 @@ const SignupForm = () => {
                         <StepThree submitButtonText={"Next"} prevButton={true} />
                     </LazyLoad>
                 )}
-                {formStage === 4 && <StepOutput />}
+                {formStage === 4 && <StepOutput successMessage={"Thank you, please check your email!"} />}
             </div>
         </Authentication>
     );
